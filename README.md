@@ -32,16 +32,22 @@ Location: SF
 
 ### Boolean Logic
 
-At the very lowest level, computers understand our instructions as sequences of 1s and 0s.  This "binary code" drives everything a computer does, from outputting text in the terminal, to displaying complex video game graphics, to communicating with other computers across the internet.
+At the very lowest level, sequences of 1s and 0s called "binary code" drive everything a computer does, from outputting text in the terminal, to displaying complex video game graphics, to communicating with other computers across the internet.
 
-Boolean logic is the closest web developers need to get to thinking about binary code.  In boolean logic, every value is either true or false.
+Boolean logic is the closest web developers need to get to thinking about binary code.  In pure boolean logic, every value is either true or false.
+
+#### Boolean Values in JavaScript
+
+JavaScript has `true` and `false`:
 
 ```js
 typeof(true)    // boolean
 typeof(false)   // boolean
 ```
 
-JavaScript blurs this line a bit by using "truthy" and "falsey" values.  The positive effect is that conditionals don't have to be phrased just in terms of boolean values. Downsides are that we have to memorize which values are "falsey," and it can take practice to quickly predict results.
+JavaScript also treats every value as "truthy" or "falsey".  
+
+To work within this system, we have to memorize which values are "falsey." It can take practice to quickly predict results, but developers can use this truthy/falsey system to write shorter code for conditional expressions.
 
 To check whether some value is truthy or falsey, try the following structure in your JavaScript console:
 
@@ -56,19 +62,29 @@ if(myValue){
 
 #### Basic Boolean Operators
 
-| English | "and" | "or" | "not" or "bang" | "double bang" |
+An "operator" is represents a simple operation that can be done on an input to give some output, like `+` and `-` from math!
+
+These operators give boolean outputs, but in JavaScript their inputs could be anything.
+
+| English | "and" | "or" | "not" | "not not" |
 | ------------- |:-------------|:-------------|:-------------| :------- |
 | Javascript | `&&` | &#124;&#124; | `!` | `!!` | |  
 | e.g. | `a && b` | a  &#124;&#124; b | `!b` | `!!b` |
-| English | A and B | A or B | not B | not NOT B |
+| spoken | A and B | A or B | not B | not NOT B |
+
+> The `!` operator is sometimes pronounced 'bang!'.
+
 
 #### Boolean Comparison Operators
+
+These operators give boolean outputs, but in JavaScript their inputs could be anything.  
 
 | strict equality | loose equality | not strictly equal | not loosely equal | greater than | less than | greater than or equal to | less than or equal to |
 | ------------- |:-------------|:-------------|:-------------|:-------------|:-------------|:-------------|:-------------|
 | `===` | `==` | `!==` | `!=` | `>` | `<` | `>=` | `<=` |
+| spoken | A and B | A or B | not B | not NOT B |
 
-
+> Strict equality checks type and value, while loose equality only compares value.
 
 ## Check for Understanding
 
@@ -91,7 +107,7 @@ if(myValue){
   Note that JavaScript is lazy when it can quit evaluating a boolean expression early. For example, in the last expression above, you can tell from just the first `false &&` that the whole expression will be false.
   </details>
 
-1. Which of the following are truthy values?
+1. Which of the following are falsey?
   * `"abc"`
   * `""`
   * `1`
@@ -106,7 +122,7 @@ if(myValue){
   * `undefined`
 
   <details><summary>answers</summary>
-  truthy: `1`, `"abc"`, `[]`, `{}`, `Math.PI`, `Array`, `Object`      
+  truthy: `-0`, `""`, `NaN`, `null`, `undefined`      
   </details>
 
 1. What is the outcome of the following expressions?
@@ -133,7 +149,7 @@ if(myValue){
 
 #### `if/else`
 
-The boolean expression inside an `if`'s parentheses will always be evaluated as truthy or falsy to determine what will happen next.
+The boolean expression inside an `if`'s parentheses will always be evaluated as truthy or falsey to determine what will happen next.
 
 A diehard Giants fan might have the following rules for baseball games:
 
@@ -191,14 +207,14 @@ A strategy for choosing what to drink:
 ```js
 var drink;
 
-if (tooSleepy) {
+if (sleepy) {
   if (before5pm) {
     drink = "coffee";
   } else {
     drink = "black tea";
   }
 } else {
-  if (isHungry){
+  if (hungry){
     drink = "smoothie";
   } else {  
     drink = "water";
