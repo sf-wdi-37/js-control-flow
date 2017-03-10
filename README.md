@@ -460,6 +460,22 @@ for (var height=48, yearlyGrowth=1, age=8; age<=18; height += yearlyGrowth){
 console.log("Adult height is ", height, " inches!");
 ```
 
+
+
+
+A `for...of` loop loops through any **iterable** object. That just means a kind of object that keeps track of the order of things inside it so it always knows which is next.  
+
+```js
+for (let letter of 'hello'){
+  console.log(letter);
+}
+```
+
+The example above uses a string, taking advantage of JavaScript's iterable `String()` object type.  Can you think of another kind of object type that stores its contents in order?
+
+
+  
+
 #### `break`
 
 The reserved word `break` will break us out of a loop immediately.  
