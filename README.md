@@ -288,6 +288,53 @@ if ( badThing ) {
 
 ```
 
+
+#### ES6 Block Scope
+
+<img width=200 alt="ES6 JavaScript" src="https://cloud.githubusercontent.com/assets/3254910/23785405/6ffbd794-051c-11e7-9731-d1f0e7479a5a.png">
+
+Variables created with JavaScript's `let` and `const` reserved words have "block scope", meaning they only exist INSIDE the "block" where they were created.  
+
+So what is a block?
+
+A block is the portion of an `if`, `else`, `for`, `switch`, or similar statement that is between `{` and `}`.  (Functions use a slightly different kind of scope - code inside a function has the power to look outside into larger scopes.)
+
+1. In the example below, which line(s) are inside the `if` statement's block?
+
+	```js
+	1
+	2 if ( degrees === 90 ) {
+	3
+	4     console.log('right angle');
+	5 }
+	6
+	```
+
+
+1. In the ES6 example below, on what line(s) is the `angle` variable in scope?
+
+	```js
+	1
+	2 if ( degrees === 90 ) {
+	3     let angle = 'right';
+	4     console.log(`${angle} angle`);
+	5 }
+	6
+	```
+
+
+
+1. In the ES6 or ES5 example below, on what lines is the `angle` variable in scope?
+
+	```js
+	1
+	2 if ( degrees === 90 ) {
+	3     var angle = 'right';
+	4     console.log(angle + ' angle');
+	5 }
+	6
+	```
+
 #### Check for Understanding: Conditionals!
 
 Whiteboard with a partner:
@@ -463,7 +510,7 @@ console.log("Adult height is ", height, " inches!");
 
 
 
-A `for...of` loop loops through any **iterable** object. That just means a kind of object that keeps track of the order of things inside it so it always knows which is next.  
+**ES6** added `for...of` loops.  A `for...of` loop loops through any **iterable** object. That just means a kind of object that keeps track of the order of things inside it so it always knows which is next.  
 
 ```js
 for (let letter of 'hello'){
@@ -474,7 +521,7 @@ for (let letter of 'hello'){
 The example above uses a string, taking advantage of JavaScript's iterable `String()` object type.  Can you think of another kind of object type that stores its contents in order?
 
 
-  
+
 
 #### `break`
 
