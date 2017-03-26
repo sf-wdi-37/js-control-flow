@@ -1,6 +1,6 @@
 <!--
-Creator: SF WDI Team
-Last Edited by: Jean
+Creator: SF WDI Team (author unknown)
+Last Edited by: Brianna
 Location: SF
 -->
 
@@ -19,8 +19,10 @@ Location: SF
 *After this workshop, developers will be able to:*
 
 - Predict the output of boolean expressions, including "truthy" and "falsey" values.
-- Write syntactically correct conditional statements.
-- Compare & contrast for and while loops.
+- Write conditional statements based on English or pseudocode descriptions of behavior.
+- Compare & contrast `for` and `while` loops.
+- Write loops based on English or pseudocode descriptions of behavior.
+- Identify 'blocks' in JavaScript code.
 
 ### Where should we be now?
 <!-- call out the skills that are prerequisites -->
@@ -29,12 +31,32 @@ Location: SF
 - Create and change variables of many types in the Chrome developer tools.
 - Access and change values with objects and arrays.
 
+<!--
 
-### Boolean Logic
+### Binary Encoding
 
 At the very lowest level, computers understand our instructions as sequences of 1s and 0s.  This "binary code" drives everything a computer does, from outputting text in the terminal, to displaying complex video game graphics, to communicating with other computers across the internet.
 
-Boolean logic is the closest web developers need to get to thinking about binary code.  In boolean logic, every value is either true or false.
+It may seem like you can't express much with just 0s and 1s, but the trick is to use a lot of 0s and 1s.
+
+##### Check for Understanding
+
+Pair up. You'll be asking a series of questions for a survey, but legally you're only allowed to ask yes/no questions are allowed (to simulate 1s and 0s).  Work with your partner to try to design the shortest possible survey to get the following information from participants.
+
+1. Is your phone on or off?
+
+2. Is your favorite season spring, summer, fall, or winter?
+
+3. What is your favorite month?
+
+If you found 1, 2, and then 4 questions for the information above, your survey was very efficient!
+ -->
+
+
+### Boolean Logic
+
+
+In boolean logic, every value is either true or false.
 
 ```js
 typeof(true)    // boolean
