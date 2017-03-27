@@ -1,6 +1,6 @@
 <!--
-Creator: SF WDI Team
-Last Edited by: Jean
+Creator: SF WDI Team (author unknown)
+Last Edited by: Brianna
 Location: SF
 -->
 
@@ -19,34 +19,57 @@ Location: SF
 *After this workshop, developers will be able to:*
 
 - Predict the output of boolean expressions, including "truthy" and "falsey" values.
-- Write syntactically correct conditional statements.
-- Compare & contrast for and while loops.
+- Write conditional statements based on descriptions of behavior.
+- Compare & contrast `for` and `while` loops.
+- Write loops based on descriptions of behavior.
+- Identify "blocks" in JavaScript code.
 
 ### Where should we be now?
 <!-- call out the skills that are prerequisites -->
 *Before this workshop, developers should already be able to:*
 
 - Create and change variables of many types in the Chrome developer tools.
-- Access and change values with objects and arrays.
+- Access and change values within objects and arrays.
+
+<!--
+
+### Binary Encoding
+
+At the very lowest level, sequences of 1s and 0s called "binary code" drive everything a computer does, from outputting text in the terminal, to displaying complex video game graphics, to communicating with other computers across the internet.
+
+It may seem like you can't express much with just 0s and 1s, but the trick is to use a lot of 0s and 1s.
+
+##### Check for Understanding
+
+Pair up. You'll be asking a series of questions for a survey, but legally you're only allowed to ask yes/no questions are allowed (to simulate 1s and 0s).  Work with your partner to try to design the shortest possible survey to get the following information from participants.
+
+1. Is your phone on or off?
+
+2. Is your favorite season spring, summer, fall, or winter?
+
+3. What is your favorite month?
+
+If you found 1, 2, and then 4 questions for the information above, your survey was very efficient!
+ -->
 
 
 ### Boolean Logic
 
-At the very lowest level, computers understand our instructions as sequences of 1s and 0s.  This "binary code" drives everything a computer does, from outputting text in the terminal, to displaying complex video game graphics, to communicating with other computers across the internet.
-
-Boolean logic is the closest web developers need to get to thinking about binary code.  In boolean logic, every value is either true or false.
+In boolean logic, every value is either `true` or `false`.
 
 ```js
 typeof(true)    // boolean
 typeof(false)   // boolean
 ```
 
-JavaScript blurs this line a bit by using "truthy" and "falsey" values.  The positive effect is that conditionals don't have to be phrased just in terms of boolean values. Downsides are that we have to memorize which values are "falsey," and it can take practice to quickly predict results.
+JavaScript also treats every value as "truthy" or "falsey".  
+
+To work within this system, we have to memorize which values are "falsey." It can take practice to quickly predict results, but developers can use this truthy/falsey system to write shorter code for conditional expressions.
 
 To check whether some value is truthy or falsey, try the following structure in your JavaScript console:
 
 ```js
-var myValue = "fishing";
+let myValue = "fishing";
 if(myValue){
   console.log(myValue, " is truthy!");
 } else {
@@ -56,42 +79,52 @@ if(myValue){
 
 #### Basic Boolean Operators
 
-| English | "and" | "or" | "not" or "bang" | "double bang" |
+An "operator" is represents a simple operation that can be done on an input to give some output, like `+` and `-` from math!
+
+These operators give boolean outputs, but in JavaScript their inputs could be anything.
+
+| English | "and" | "or" | "not" | "not not" |
 | ------------- |:-------------|:-------------|:-------------| :------- |
 | Javascript | `&&` | &#124;&#124; | `!` | `!!` | |  
 | e.g. | `a && b` | a  &#124;&#124; b | `!b` | `!!b` |
-| English | A and B | A or B | not B | not NOT B |
+| spoken | A and B | A or B | not B | not NOT B |
+
+> The `!` operator is sometimes pronounced 'bang!'.
+
 
 #### Boolean Comparison Operators
+
+These operators give boolean outputs, but in JavaScript their inputs could be anything.  
 
 | strict equality | loose equality | not strictly equal | not loosely equal | greater than | less than | greater than or equal to | less than or equal to |
 | ------------- |:-------------|:-------------|:-------------|:-------------|:-------------|:-------------|:-------------|
 | `===` | `==` | `!==` | `!=` | `>` | `<` | `>=` | `<=` |
+| spoken | A and B | A or B | not B | not NOT B |
 
-
+> Strict equality checks type and value, while loose equality only compares value.
 
 ## Check for Understanding
 
 1. What is the outcome of the following expressions?
 
-  * true || false
-  * false && false
-  * true && false
-  * (false || true) && true
-  * false && ((true || false) && (false || true))
+  * `true || false`
+  * `false && false`
+  * `true && false`
+  * `(false || true) && true`
+  * `false && ((true || false) && (false || true))`
 
   <details><summary>answers</summary>
   ```js
-  * true || false    	   // true
-  * false && false	     // false
-  * true && false	       // false
-  * (false || true) && true	// true
-  * false && ((true || false) && (false || true))	// false
+  true || false    	   // true
+  false && false	     // false
+  true && false	       // false
+  (false || true) && true	// true
+  false && ((true || false) && (false || true))	// false
   ```
   Note that JavaScript is lazy when it can quit evaluating a boolean expression early. For example, in the last expression above, you can tell from just the first `false &&` that the whole expression will be false.
   </details>
 
-1. Which of the following are truthy values?
+1. Which of the following are falsey?
   * `"abc"`
   * `""`
   * `1`
@@ -106,21 +139,21 @@ if(myValue){
   * `undefined`
 
   <details><summary>answers</summary>
-  truthy: `1`, `"abc"`, `[]`, `{}`, `Math.PI`, `Array`, `Object`      
+  truthy: `-0`, `""`, `NaN`, `null`, `undefined`      
   </details>
 
 1. What is the outcome of the following expressions?
-  *  1 && 6
-  *  0 || "hi"
-  *  ["a","b","c"] || "123"
-  *  false || null
+  * `1 && 6`
+  * `0 || "hi"`
+  * `["a","b","c"] || "123"`
+  * `false || null`
 
   <details><summary>answers</summary>
   ```js
-  *  1 && 6                     // 6
-  *  0 || "hi"                  // "hi"
-  *  ["a","b","c"] || "123"     // ["a","b","c"]
-  *  false || null              // null
+  1 && 6                     // 6
+  0 || "hi"                  // "hi"
+  ["a","b","c"] || "123"     // ["a","b","c"]
+  false || null              // null
   ```
   </details>
 
@@ -133,17 +166,17 @@ if(myValue){
 
 #### `if/else`
 
-The boolean expression inside an `if`'s parentheses will always be evaluated as truthy or falsy to determine what will happen next.
+The boolean expression inside an `if`'s parentheses will always be evaluated as truthy or falsey to determine what will happen next.
 
 A diehard Giants fan might have the following rules for baseball games:
 
 ```js
 if (giantsPlaying) {
-  getTickets();
+  // get tickets to the game
 }
 
 if (!giantsPlaying) {
-  watchOnTV();
+  // don't watch the game
 }
 ```
 
@@ -151,54 +184,52 @@ We can rephrase this more succinctly using `if` and `else`.
 
 ```js
 if (giantsPlaying) {
-  getTickets();
+  // get tickets to the game
 } else {
-  watchOnTV();
+  // don't watch the game
 }
 ```
 
 
-A slightly more complex boolean expression will help our Giants fan save some money by adding another requirement to purchase tickets:
+Getting tickets to all Giants games would be expensive!  Maybe the Giants fan only wants to watch games that are in San Francisco.
 
 ```js
 if (giantsPlaying && gameInSF){
-  getTickets();
+  // get tickets to the game
 } else {
-  watchOnTV();
+  // don't watch the game
 }
 ```
 
 #### `else if`
 
- Here's a sample ruleset for commuters:
+If the Giant fan wants to watch games outside San Francisco, watching on TV might be an easier option.
 
 ```js
-var destination = "GA";
-if ( hasBike ) {
-  rideToGA();
-} else if ( hasTransitPass ) {
-  busToGA();
+if (giantsPlaying && gameInSF){
+  // get tickets to the game
+} else if (giantsPlaying){
+  // watch on tv
 } else {
-  walkToGA();
+  // don't watch the game
 }
 ```
 
-
 #### Nested `if`s
 
-A strategy for choosing what to drink:
+Here's a strategy someone might use for choosing what to drink. Assume there's already a `person` variable saved.
 
 ```js
-var drink;
+let drink;
 
-if (tooSleepy) {
+if (person.sleepy) {
   if (before5pm) {
     drink = "coffee";
   } else {
     drink = "black tea";
   }
 } else {
-  if (isHungry){
+  if (person.isHungry){
     drink = "smoothie";
   } else {  
     drink = "water";
@@ -209,8 +240,7 @@ if (tooSleepy) {
 
 #### `switch`
 
-
-A `switch` statement checks the value of one variable or expression to determine which of many "cases" to jump to.  Here's code for a vending machine with a different price for each row:
+A `switch` statement checks the value of *one* variable or expression to determine which of many "cases" to jump to.  Here's code for a vending machine with a different price for each row:
 
 ```js
 switch (row){
@@ -231,18 +261,20 @@ switch (row){
 }			
 ```
 
+Any `switch` statement can be written as a series of `if`, `else if`, and/or `else`.  For WDI, we suggest avoiding `switch`.
 
-###Conditional Control Flow Tricks
+
+### Conditional Control Flow Tricks
 
 **Loose Control Flow** (watch out for edge cases!)
 
 ```js
+let username = `${firstInitial}${lastName}`;
 if ( username ) {
 	// submit signup form
 }
 
-// same intent as
-
+// code above does the same as:
 if ( username.length > 0) {
 	// submit signup form
 }
@@ -251,13 +283,14 @@ if ( username.length > 0) {
 **Ternary operator**
 
 ```js
-var username = last_name ? first_name + last_name : first_name;
+var username = lastName ? `${firstName}${lastName}` : firstName;
 
 // same as
-
-var username = first_name;
-if ( last_name ) {
-	username = first_name + last_name;
+var username;
+if ( lastName ) {
+	username = `${firstName}${lastName}`;
+} else {
+  username = firstName;
 }
 ```
 
@@ -272,10 +305,9 @@ var bestCity = "San Francisco";
 if ( yourCity ) {
 	bestCity = yourCity;
 }
-
 ```
 
-**Conditional Execution: `&&` to handle issues**
+<!-- **Conditional Execution: `&&` to set default behavior**
 
 ```js
 badThing && alert("Uh oh!")
@@ -286,9 +318,59 @@ if ( badThing ) {
 	alert("Uh oh!");
 }
 
-```
+``` -->
 
-#### Check for Understanding: Conditionals!
+
+#### ES6 Block Scope
+
+<img width=200 alt="ES6 JavaScript" src="https://cloud.githubusercontent.com/assets/3254910/23785405/6ffbd794-051c-11e7-9731-d1f0e7479a5a.png">
+
+Remember, variables created with JavaScript's `let` and `const` reserved words have "block scope," meaning they only exist INSIDE the "block" where they were created.  
+
+So what is a block?
+
+A block is the portion of an `if`, `else`, `for`, `switch`, or similar statement that is between `{` and `}`. Functions also have their own blocks.  
+
+
+#### Check for Understanding
+
+1. In the example below, which line(s) are inside the `if` statement's block?
+
+	```js
+	1
+	2 if ( degrees === 90 ) {
+	3
+	4     console.log('right angle');
+	5 }
+	6
+	```
+
+
+1. In the ES6 example below, on what line(s) is the `angle` variable in scope?
+
+	```js
+	1
+	2 if ( degrees === 90 ) {
+	3     let angle = 'right';
+	4     console.log(`${angle} angle`);
+	5 }
+	6
+	```
+
+
+
+1. In the ES6 or ES5 example below, on what lines is the `angle` variable in scope?
+
+	```js
+	1
+	2 if ( degrees === 90 ) {
+	3     var angle = 'right';
+	4     console.log(angle + ' angle');
+	5 }
+	6
+	```
+
+#### Check for Understanding: Practice Conditionals!
 
 Whiteboard with a partner:
 
@@ -306,9 +388,10 @@ if ( tokens >= 5 ) {
 }
 ```
 
-Pseudocode or edit the code above to check the following requirements:
+Pseudocode or edit the code above to check the following requirements.  You can assume there are variables stored for `tokens`, `height`, `age`, `hasAdult`, `bossLooking`, and `hasPass`.
 
 1. Add a requirement that riders must be at least 4ft tall.   
+
   <details><summary>answer</summary>
     ```js
     if ( tokens >= 5 && height >= 4) {
@@ -320,6 +403,7 @@ Pseudocode or edit the code above to check the following requirements:
   </details>
 
 2. Add a requirement that riders must be at least 12 years old.  
+
   <details><summary>answer</summary>
     ```js
   	if ( tokens >= 5 && height >= 4 && age >=12) {
@@ -330,7 +414,7 @@ Pseudocode or edit the code above to check the following requirements:
     ```
   </details>
 
-3. Replace the previous rule: now riders under 12 can participate when they're accompanied by an adult.  
+3. Replace the previous rule with this new rule: now riders under 12 can participate if they have an adult with them.  
 
   <details><summary>answer</summary>
     ```js
@@ -347,7 +431,6 @@ Pseudocode or edit the code above to check the following requirements:
   </details>
 
 4. (If the boss isn't looking, you can go on in!)  
-
 
   <details><summary>answer</summary>
     ```js
@@ -368,7 +451,6 @@ Pseudocode or edit the code above to check the following requirements:
   </details>
 
 5. Riders with a park pass get in free.
-
 
   <details><summary>answer</summary>
     ```js
@@ -404,11 +486,11 @@ _While pizza is available, take pizza!_
 In while loops, the initial setup happens before the loop. The continue condition goes inside the `while` parentheses. The updates happen inside the loop.
 
 
-
 ```js
-var minutesBeforeWork = 80;                    // setup:  plan to wake up early
-while (minutesBeforeWork > 30) {               // continue condition: leave enough time to get day clothes on
-  minutesBeforeWork = minutesBeforeWork - 5;   // update: hit snooze!
+var batteryPercent = 100;                // setup: initial state of battery
+while (batteryPercent > 10) {            // continue condition: enough battery
+  useDevice();
+  batteryPercent = batteryPercent - 5;   // update: reduce time left
 }
 ```
 
@@ -423,20 +505,6 @@ for (var count = 1; count <= 3; count++){
 console.log("Go Team!");
 ```
 
-
-For loops for arrays usually use a counter variable to move through the indices of the array.
-
-```js
-var friends = ["Bali", "Nat", "Kelly"]
-for (var i = 0; i < friends.length; i++) {
-  console.log(friends[i] + " is a nice person");
-}
-
-```
-
-We'll see how to use special iterator methods to move through arrays sequentially. Iterator methods are wonderful for that.  For loops in JavaScript are much more flexible than iterator methods, though, so it's important to get a handle on them.
-
-
 For loops only really need a continue condition (or the loop will never end!). We can do setup before the loop, and we can do updating inside the loop. In this way, a for loop can look a lot like a while loop.
 
 ```js
@@ -446,6 +514,30 @@ for( ; minutesBeforeWork > 30; ) {
 }
 ```
 
+
+For loops for arrays usually use a counter variable to move through the indices of the array.
+
+```js
+var friends = ["Bali", "Nat", "Kelly"]
+for (var i = 0; i < friends.length; i++) {
+  console.log(friends[i] + " is a nice person");
+}
+```
+
+In ES6, `for ... of` loops are used to loop through arrays.
+```js
+var friends = ["Bali", "Nat", "Kelly"]
+for (let friend in friends) {
+  console.log(`${friend} is a nice person`);
+}
+```
+
+We'll see how to use special iterator methods to move through arrays sequentially. Iterator methods are wonderful for that.  For loops in JavaScript are much more flexible than iterator methods, though, so it's important to get a handle on them.
+
+
+
+
+<!--
 Here's an example that takes advantage of JavaScript for loops' flexibility (perhaps at the cost of readability!).  
 
 ```js
@@ -459,6 +551,8 @@ for (var height=48, yearlyGrowth=1, age=8; age<=18; height += yearlyGrowth){
 }
 console.log("Adult height is ", height, " inches!");
 ```
+
+ -->
 
 #### `break`
 
@@ -478,7 +572,7 @@ while (j < 10) {
 }
 ```
 
-#### Check for Understanding: Loops!
+#### Check for Understanding: Practice Loops!
 
 Use a `for` or `while` loop to console log a shuttle launch countdown:  "T minus 10", then "9", "8", "7", "6", "5", "4", "3", "2", "1", "0", "Liftoff!".
 
