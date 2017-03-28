@@ -339,11 +339,9 @@ if ( badThing ) {
 ``` -->
 
 
-#### ES6 Block Scope
+#### Block Scope
 
-<img width=200 alt="ES6 JavaScript" src="https://cloud.githubusercontent.com/assets/3254910/23785405/6ffbd794-051c-11e7-9731-d1f0e7479a5a.png">
-
-Remember, variables created with JavaScript's `let` and `const` reserved words have "block scope," meaning they only exist INSIDE the "block" where they were created.  
+Remember, variables created with JavaScript ES6's `let` and `const` reserved words have "block scope," meaning they only exist INSIDE the "block" where they were created.  
 
 So what is a block?
 
