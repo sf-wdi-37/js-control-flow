@@ -394,7 +394,7 @@ Pseudocode or edit the code above to check the following requirements.  You can 
 
   <details><summary>answer</summary>
     ```js
-    if ( tokens >= 5 && height >= 4) {
+    if (tokens >= 5 && height >= 4) {
         console.log("Step right up!");
     } else {
         console.log("Sorry, you can't ride.");
@@ -406,7 +406,7 @@ Pseudocode or edit the code above to check the following requirements.  You can 
 
   <details><summary>answer</summary>
     ```js
-  	if ( tokens >= 5 && height >= 4 && age >=12) {
+  	if (tokens >= 5 && height >= 4 && age >=12) {
   	    console.log("Step right up!");
   	} else {
   	    console.log("Sorry, you can't ride.");
@@ -418,7 +418,7 @@ Pseudocode or edit the code above to check the following requirements.  You can 
 
   <details><summary>answer</summary>
     ```js
-    if ( tokens >= 5 && height >= 4 ) {
+    if (tokens >= 5 && height >= 4 ) {
       if (age >= 12 || hasAdult){
           console.log("Step right up!");
       } else {
