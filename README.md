@@ -31,6 +31,24 @@ Location: SF
 - Create and change variables of many types in the Chrome developer tools.
 - Access and change values within objects and arrays.
 
+### Warmup
+
+Think of a decision you make often, like what to eat for lunch, whether to wear a jacket, or how much time you will set aside to travel to an event from your house. Using variables and conditionals, pseudocode your decision-making process. Here's an example:
+
+```js
+// do I bring an umbrella?  
+// variables: 
+    // currentlyRaining (boolean)
+    // chanceOfRain (number, for percent chance of rain)
+    // me (object, represents me)
+if (currentlyRaining || chanceOfRain > 70) {
+  // bring umbrella!
+  me.hasUmbrella = true;
+} else {
+  me.hasUmbrella = false;
+}
+```
+
 <!--
 
 ### Binary Encoding
