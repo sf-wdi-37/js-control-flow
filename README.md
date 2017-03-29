@@ -101,11 +101,29 @@ An "operator" is represents a simple operation that can be done on an input to g
 
 These operators give boolean outputs, but in JavaScript their inputs could be anything.
 
-| English | "and" | "or" | "not" | "not not" |
-| ------------- |:-------------|:-------------|:-------------| :------- |
-| Javascript | `&&` | &#124;&#124; | `!` | `!!` | |  
-| e.g. | `a && b` | a  &#124;&#124; b | `!b` | `!!b` |
-| spoken | A and B | A or B | not B | not NOT B |
+English:  "and"    
+JavaScript: `&&`  
+Example: `a && b `   
+Spoken: "A and B"  
+Rule: `true` when both sides are truthy  
+
+English:  "or"   
+JavaScript: `||`   
+Example: `a || b `   
+Spoken: "A or B"   
+Rule: `true` when at least one side is truthy   
+
+English:  "not"    
+JavaScript: `!`   
+Example: `!b `   
+Spoken: "not B"   
+Rule: reverses value (`true` when `b` is falsey)   
+
+English:  "not not"    
+JavaScript: `!!`   
+Example: `!!b `   
+Spoken: "not not B"   
+Rule: `true` when `b` is truthy   
 
 > The `!` operator is sometimes pronounced 'bang!'.
 
@@ -117,7 +135,6 @@ These operators give boolean outputs, but in JavaScript their inputs could be an
 | strict equality | loose equality | not strictly equal | not loosely equal | greater than | less than | greater than or equal to | less than or equal to |
 | ------------- |:-------------|:-------------|:-------------|:-------------|:-------------|:-------------|:-------------|
 | `===` | `==` | `!==` | `!=` | `>` | `<` | `>=` | `<=` |
-| spoken | A and B | A or B | not B | not NOT B |
 
 > Strict equality checks type and value, while loose equality only compares value.
 
@@ -409,31 +426,31 @@ Pseudocode or edit the code above to check the following requirements.  You can 
 1. Add a requirement that riders must be at least 4ft tall.   
 
   <details><summary>answer</summary>
-    ```js
+
     if (tokens >= 5 && height >= 4) {
         console.log("Step right up!");
     } else {
         console.log("Sorry, you can't ride.");
     }
-    ```
+
   </details>
 
 2. Add a requirement that riders must be at least 12 years old.  
 
   <details><summary>answer</summary>
-    ```js
+
   	if (tokens >= 5 && height >= 4 && age >=12) {
   	    console.log("Step right up!");
   	} else {
   	    console.log("Sorry, you can't ride.");
   	}
-    ```
+
   </details>
 
 3. Replace the previous rule with this new rule: now riders under 12 can participate if they have an adult with them.  
 
   <details><summary>answer</summary>
-    ```js
+
     if (tokens >= 5 && height >= 4 ) {
       if (age >= 12 || hasAdult){
           console.log("Step right up!");
@@ -443,19 +460,19 @@ Pseudocode or edit the code above to check the following requirements.  You can 
     } else {
         console.log("Sorry, you can't ride.");
     }
-    ```
+
   </details>
 
 4. (If the boss isn't looking, you can go on in!)  
 
   <details><summary>answer</summary>
-    ```js
+    
     if (!bossLooking){
   		console.log("Step right up!");
   	} else {
   		if ( tokens >= 5 && height >= 4 ) {
   			if (age >= 12 || hasAdult){
-  			    console.log("Step right up!");
+  			  console.log("Step right up!");
   			} else {
   				console.log("Sorry, you can't ride.");
   			}
@@ -463,27 +480,28 @@ Pseudocode or edit the code above to check the following requirements.  You can 
   		    console.log("Sorry, you can't ride.");
   		}
   	}
-    ```
   </details>
 
 5. Riders with a park pass get in free.
 
   <details><summary>answer</summary>
-    ```js
-    if (!bossLooking){
-  		console.log("Step right up!");
-  	} else {
-  		if ( (tokens >= 5 || hasPass) && height >= 4 ) {
-  			if (age >= 12 || hasAdult){
-  			    console.log("Step right up!");
-  			} else {
-  				console.log("Sorry, you can't ride.");
-  			}
-  		} else {
-  		    console.log("Sorry, you can't ride.");
-  		}
-  	}
-    ```
+
+	
+	if (!bossLooking){
+		console.log("Step right up!");
+	} else {
+		if ( (tokens >= 5 || hasPass) && height >= 4 ) {
+			if (age >= 12 || hasAdult){
+					console.log("Step right up!");
+			} else {
+				console.log("Sorry, you can't ride.");
+			}
+		} else {
+				console.log("Sorry, you can't ride.");
+		}
+	}
+	
+	
   </details>
 
 
@@ -592,24 +610,27 @@ while (j < 10) {
 
 Use a `for` or `while` loop to console log a shuttle launch countdown:  "T minus 10", then "9", "8", "7", "6", "5", "4", "3", "2", "1", "0", "Liftoff!".
 
-<details><summary>answer</summary>
-  ```js
-  console.log("T minus 10");
-  for (var i=9; i>=0; i--){
-    console.log(i);   // can log i.toString() to convert
-  }
-  console.log("Liftoff!");
-  ```
+<details><summary>for loop answer</summary>
+  
+		console.log("T minus 10");
+		for (var i=9; i>=0; i--){
+			console.log(i);   // can log i.toString() to convert
+		}
+		console.log("Liftoff!");
+</details>
+	
 
-  ```js
-  console.log("T minus 10");
-  i = 9;
-  while (i>=0){
-    console.log(i);   // can log i.toString() to convert
-    i--;
-  }
-  console.log("Liftoff!");
-  ```
+  
+<details><summary>while loop answer</summary>
+
+		console.log("T minus 10");
+		i = 9;
+		while (i>=0){
+			console.log(i);   // can use i.toString() to convert
+			i--;
+		}
+		console.log("Liftoff!");
+	
 </details>
 
 
