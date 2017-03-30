@@ -527,7 +527,7 @@ for (var i = 0; i < friends.length; i++) {
 In ES6, `for ... of` loops are used to loop through arrays.
 ```js
 var friends = ["Bali", "Nat", "Kelly"]
-for (let friend in friends) {
+for (let friend of friends) {
   console.log(`${friend} is a nice person`);
 }
 ```
